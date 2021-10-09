@@ -43,7 +43,7 @@ head -1 steps_into_integer_total.txt > steps_into_integer_done.txt
 fi
 
 STEPS_INTO_INTEGER_TOTAL_DONE=$(<steps_into_integer_done.txt)
-echo "steps to take into integer = $STEPS_INTO_INTEGER_TOTAL_DONE"
+#echo "steps to take into integer = $STEPS_INTO_INTEGER_TOTAL_DONE"
 
 #rounding of some sort
 calc -d "$STEPS_INTO_INTEGER_TOTAL_DONE * $ROUND_TO_THIS" > new_decimals.txt
