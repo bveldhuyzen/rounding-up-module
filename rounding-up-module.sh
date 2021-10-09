@@ -3,7 +3,7 @@
 #bveldhuyzen [at] gmail dot com
 #2021
 
-#This script rounds numbers down to whatever decimals you want
+#This script rounds numbers up to any ceiling
 
 #echo the number that has to be rounded down here
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
