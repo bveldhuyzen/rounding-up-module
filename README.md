@@ -1,2 +1,2 @@
 # rounding-up-module
-Rounds any number up to any ceiling
+Rounds any number up to any (decimal) ceiling
