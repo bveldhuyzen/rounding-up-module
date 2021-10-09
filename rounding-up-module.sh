@@ -53,6 +53,9 @@ NEW_DECIMALS=$(<new_decimals.txt)
 calc -d "$INTEGER + $NEW_DECIMALS" > rounded_number.txt
 cat rounded_number.txt
 
-read -p 'pause'
+#read -p 'pause'
 
 rm full_number_1.txt round_to_this.txt integer.txt leftover_decimals.txt steps_into_integer.txt steps_into_integer_total.txt new_decimals.txt rounded_number.txt steps_leftover_decimals_1.txt steps_leftover_decimals.txt steps_into_integer_done.txt
+
+
+#V
