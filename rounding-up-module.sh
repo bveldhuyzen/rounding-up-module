@@ -9,7 +9,7 @@ echo "0.5687576465476" > full_number_1.txt
 FULL_NUMBER=$(<full_number_1.txt)
 
 #echo the decimals to which the module has to round up to (ceiling)
-#e.g. 0.05 will make the module round down to the nearest (multiple of) 0.05.
+#e.g. 0.05 will make the module round up to the nearest (multiple of) 0.05.
 #e.g. 1.899999 will then be rounded down to 1.85
 echo "0.020" > round_to_this.txt
 ROUND_TO_THIS=$(<round_to_this.txt)
