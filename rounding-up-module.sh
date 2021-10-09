@@ -3,7 +3,7 @@
 #bveldhuyzen [at] gmail dot com
 #2021
 
-#echo the number that has to be rounded down here
+#echo the number that has to be rounded up here
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
 echo "0.5687576465476" > full_number_1.txt
 FULL_NUMBER=$(<full_number_1.txt)
