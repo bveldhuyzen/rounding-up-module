@@ -1,9 +1,7 @@
 #!bin/bash
-#Rounding down script, free for use
+#Rounds numbers up to whatever decimals you want
 #bveldhuyzen [at] gmail dot com
 #2021
-
-#This script rounds numbers up to any decimal ceilig you want
 
 #echo the number that has to be rounded down here
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
