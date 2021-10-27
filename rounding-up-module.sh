@@ -1,7 +1,7 @@
 #!bin/bash
 #Rounds numbers up to whatever decimals you want
-#bveldhuyzen [at] gmail dot com
-#2021
+
+
 
 #echo the number that has to be rounded up here
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
