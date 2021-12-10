@@ -5,7 +5,7 @@
 #at line 11, change list.txt to the filename of your own list
 #
 #after configuring the rounding-up-module-for-lists, run this file via bash read_list, and the rest is automated.
-#the result will be a new text file where each line number holds a rounded number instead of the original number
+#the result will be a new text file where each line holds a rounded number instead of the original number
 #(i.e. you can compare the original list with the new list line by line)
 
 input="list.txt"
