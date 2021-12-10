@@ -15,7 +15,7 @@
 #4. Of the numerical value [1] are obtained the decimals, for which a new variable is created
 #5. A multiplication factor is generated; how many times does [2] fit into [4].
 #6. In case the multiplication factor is not a whole number, the multiplication factor will be its integer + 1
-#7. The numerical value to round up to at [2] is multiplied by the multiplication factor of [5], resulting in a new decimal numerical value that is rounded up to [2]
+#7. The numerical value to round up to at [2] is multiplied by the multiplication factor of [5], resulting in a new (decimal) numerical value that is rounded up to [2]
 #8. And so we can add up: INTEGER + NEW_DECIMALS = ROUNDED_NUMBER
 #9. ROUNDED_NUMBER is then logged into a text file
 #
