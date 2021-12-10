@@ -9,8 +9,8 @@
 #
 #The script works as followed:
 #
-#1. The numerical value (from list) that is to be rounded up becomes a variable; this is called the FULL_NUMBER // see line 27
-#2. The numerical value (decimal(s)) to which [1] has to be rounded up to is obtained; the module will round up to the nearest (multiple of) this specified numerical value (decimal(s)) // see line 33-34
+#1. The numerical value (number from list) that is to be rounded up becomes a variable; this is called the FULL_NUMBER // see line 27
+#2. The numerical value (decimal(s)) to which [1] has to be rounded up to is obtained; the module will round up to the nearest (multiple of) specified decimal(s) // see line 33-34
 #3. Of the numerical value [1] is obtained its integer, for which a new variable is created
 #4. Of the numerical value [1] are obtained the decimals, for which a new variable is created
 #5. A multiplication factor is generated; how many times does [2] fit into [4].
