@@ -1,35 +1,60 @@
 #!bin/bash
-#Rounds numbers up to whatever decimals you want
+#Rounds any number up to the nearest (multiple of) any specified decimal(s).
+#
+#github.com/bveldhuyzen
+#2021
+#
+#
+#To be configured before use is marked with ###
+#
+#Furthermore, the script works as followed:
+#
+#1. The numerical value (any number) that is to be rounded up is obtained; this is called the FULL_NUMBER // see line 25-26
+#2. The numerical value (decimal(s)) to which [1] has to be rounded up to is obtained; the module will round up to the nearest (multiple of) this specified numerical value (decimal(s)) // see line 37-38
+#3. Of the numerical value [1] is obtained its integer, for which a new variable is created
+#4. Of the numerical value [1] are obtained the decimals, for which a new variable is created
+#5. A multiplication factor is generated; how many times does [2] fit into [4].
+#6. In case the multiplication factor is not a whole number, the multiplication factor will be its integer + 1
+#7. The numerical value to round up to at [2] is multiplied by the multiplication factor of [5], resulting in a new decimal numerical value that is rounded up to [2]
+#8. And so we can add up: INTEGER + NEW_DECIMALS = ROUNDED_NUMBER
+#9. ROUNDED_NUMBER is then logged into a text file
+#
+#All steps/significances are logged into temporary text files for validation purposes
 
 
-
-#echo the number that has to be rounded up here
+#[1]
+###echo the number that has to be rounded down at line 26
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
 echo "0.5687576465476" > full_number_1.txt
 FULL_NUMBER=$(<full_number_1.txt)
 
-#echo the decimals to which the module has to round up to (ceiling)
+#[2]
+#echo the decimals at line 35 to which the module has to round up to
 #e.g. 0.05 will make the module round up to the nearest (multiple of) 0.05.
 #e.g. 1.899999 will then be rounded up to 1.90
-echo "0.020" > round_to_this.txt
+echo "0.022" > round_to_this.txt
 ROUND_TO_THIS=$(<round_to_this.txt)
 
-#rounding down to integer
+#[3]
+#rounding full number down to integer
 echo $FULL_NUMBER | awk '{print int($0)}' > integer.txt
 INTEGER=$(<integer.txt)
 
-#leftover decimals
+#[4]
+#leftover decimals calculated by full number minus integer
 calc -d "$FULL_NUMBER - $INTEGER" > leftover_decimals.txt
 DECIMALS=$(<leftover_decimals.txt)
 
-#steps to take into integer
-calc -d "$DECIMALS / $ROUND_TO_THIS" > steps_into_integer.txt
-STEPS_INTO_INTEGER=$(<steps_into_integer.txt)
+#[5]
+#how many times to multiply ROUND_TO_THIS in order to reach the leftover decimals
+calc -d "$DECIMALS / $ROUND_TO_THIS" > MULTIPLICATION_FACTOR.txt
+MULTIPLICATION_FACTOR=$(<MULTIPLICATION_FACTOR.txt)
 
-echo $STEPS_INTO_INTEGER | awk '{print int($0)}' > steps_into_integer_total.txt
-STEPS_INTO_INTEGER_TOTAL=$(<steps_into_integer_total.txt)
+#[6]
+echo $MULTIPLICATION_FACTOR | awk '{print int($0)}' > MULTIPLICATION_FACTOR_total.txt
+MULTIPLICATION_FACTOR_TOTAL=$(<MULTIPLICATION_FACTOR_total.txt)
 
-calc -d "$STEPS_INTO_INTEGER - $STEPS_INTO_INTEGER_TOTAL" > steps_leftover_decimals.txt
+calc -d "$MULTIPLICATION_FACTOR - $MULTIPLICATION_FACTOR_TOTAL" > steps_leftover_decimals.txt
 STEPS_LEFTOVER_DECIMALS=$(<steps_leftover_decimals.txt)
 
 awk '$1>0 {$1=1} 1' steps_leftover_decimals.txt > steps_leftover_decimals_1.txt
@@ -37,25 +62,33 @@ STEPS_LEFTOVER_DECIMALS_1=$(<steps_leftover_decimals_1.txt)
 
 if [[ $STEPS_LEFTOVER_DECIMALS_1 -eq 1 ]]
 then
-calc -d "$STEPS_INTO_INTEGER_TOTAL + 1" > steps_into_integer_done.txt
+calc -d "$MULTIPLICATION_FACTOR_TOTAL + 1" > MULTIPLICATION_FACTOR_done.txt
 else
-head -1 steps_into_integer_total.txt > steps_into_integer_done.txt
+head -1 MULTIPLICATION_FACTOR_total.txt > MULTIPLICATION_FACTOR_done.txt
 fi
 
-STEPS_INTO_INTEGER_TOTAL_DONE=$(<steps_into_integer_done.txt)
-#echo "steps to take into integer = $STEPS_INTO_INTEGER_TOTAL_DONE"
+MULTIPLICATION_FACTOR_TOTAL_DONE=$(<MULTIPLICATION_FACTOR_done.txt)
 
+#[7]
 #rounding of some sort
-calc -d "$STEPS_INTO_INTEGER_TOTAL_DONE * $ROUND_TO_THIS" > new_decimals.txt
+calc -d "$MULTIPLICATION_FACTOR_TOTAL_DONE * $ROUND_TO_THIS" > new_decimals.txt
 NEW_DECIMALS=$(<new_decimals.txt)
 
-#new rounded number
+#[8]
+#new rounded number is stored into text file and presented on screen via cat
 calc -d "$INTEGER + $NEW_DECIMALS" > rounded_number.txt
 cat rounded_number.txt
+ROUNDED_NUMBER=$(<rounded_number.txt)
 
-#read -p 'pause'
 
-rm full_number_1.txt round_to_this.txt integer.txt leftover_decimals.txt steps_into_integer.txt steps_into_integer_total.txt new_decimals.txt rounded_number.txt steps_leftover_decimals_1.txt steps_leftover_decimals.txt steps_into_integer_done.txt
+#[9]
+#you may for example store the rounded number in a file of choice to create a list, e.g.
+#
+#touch LIST_DATE_TEST_2.txt
+#echo "$ROUNDED_NUMBER" >> LIST_DATE_TEST_2.txt
+#
+
+rm full_number_1.txt round_to_this.txt integer.txt leftover_decimals.txt MULTIPLICATION_FACTOR.txt MULTIPLICATION_FACTOR_total.txt new_decimals.txt  steps_leftover_decimals_1.txt steps_leftover_decimals.txt MULTIPLICATION_FACTOR_done.txt rounded_number.txt
 
 
 #V
