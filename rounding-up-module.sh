@@ -17,13 +17,13 @@
 #6. In case the multiplication factor is not a whole number, the multiplication factor will be its integer + 1
 #7. The numerical value to round up to at [2] is multiplied by the multiplication factor of [5], resulting in a new (decimal) numerical value that is rounded up to [2]
 #8. And so we can add up: INTEGER + NEW_DECIMALS = ROUNDED_NUMBER
-#9. ROUNDED_NUMBER is then logged into a text file
+#9. ROUNDED_NUMBER is then logged into a temporary text file and presented on screen via cat
 #
 #All steps/significances are logged into temporary text files for validation purposes
 
 
 #[1]
-###echo the number that has to be rounded up at line 26
+###echo the number that has to be rounded up at line 28
 #e.g. 10, 10.01, 10.10, 1050.11493759834, or whatever
 echo "0.5687576465476" > full_number_1.txt
 FULL_NUMBER=$(<full_number_1.txt)
