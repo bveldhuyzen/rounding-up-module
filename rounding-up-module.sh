@@ -1,5 +1,5 @@
 #!bin/bash
-#Rounds any number up to the nearest (multiple of) any specified decimal(s).
+#Rounds any number up to the nearest (multiple of) specified decimal(s).
 #
 #github.com/bveldhuyzen
 #2021
