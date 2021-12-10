@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 #Rounds lists of numbers up to the nearest (multiple of) any specified decimal(s).
 #
 #github.com/bveldhuyzen
