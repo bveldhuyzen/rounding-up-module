@@ -5,7 +5,7 @@
 #2021
 #
 #
-#To be configured before use is marked with ###
+#To be configured before use.
 #
 #The script works as followed:
 #
