@@ -2,7 +2,7 @@
 #
 #loop to read numbers to be rounded down from list (text file)
 #
-#at line 6, change list.txt to the filename of your own list
+#at line 11, change list.txt to the filename of your own list
 #
 #after configuring the rounding-down-module, run this file via bash read_list, and the rest is automated
 #
