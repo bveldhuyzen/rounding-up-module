@@ -1,6 +1,6 @@
 #!bin/bash
 #Rounds any number up to the nearest (multiple of) specified decimal(s).
-#
+#v1.01
 #github.com/bveldhuyzen
 #2021
 #
