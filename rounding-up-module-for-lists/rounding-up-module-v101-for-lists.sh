@@ -9,20 +9,15 @@
 #
 #The script works as followed:
 #
-#1. The numerical value (number from list) that is to be rounded up becomes a variable; this is called the FULL_NUMBER // see line 27
-#2. The numerical value (decimal(s)) to which [1] has to be rounded up to is obtained; the module will round up to the nearest (multiple of) specified decimal(s) // see line 33-34
-#3. Of the numerical value [1] is obtained its integer, for which a new variable is created
-#4. Of the numerical value [1] are obtained the decimals, for which a new variable is created
-#5. A multiplication factor is generated; how many times does [2] fit into [4].
-#6. In case the multiplication factor is not a whole number, the multiplication factor will be its integer + 1
-#7. The numerical value to round up to at [2] is multiplied by the multiplication factor of [5], resulting in a new (decimal) numerical value that is rounded up to [2]
-#8. And so we can add up: INTEGER + NEW_DECIMALS = ROUNDED_NUMBER
-#9. ROUNDED_NUMBER is then logged into a text file
+#1. The number (number from list) that is to be rounded up becomes a variable; this is called the FULL_NUMBER // see line 22
+#2. The decimals to which [1] has to be rounded up to are obtained; the module will round up to the nearest (multiple of) specified decimal(s) // see line 24
+#3. A multiplication factor is generated; how many times does [2] fit into [1]?
+#4. In case the multiplication factor is not a whole number, the multiplication factor will be its integer + 1
+#5. The numerical value to round up to at [2] is multiplied by the multiplication factor of [3], resulting in [1] being rounded up to the nearest (multiple of) [2]
+#6. ROUNDED_UP_NUMBER is then logged into a text file
+#
 #
 #All steps/significances are logged into temporary text files for validation purposes
-
-
-#!/bin/bash
 
 FULL_NUMBER=$(<full_number_1.txt)
 
