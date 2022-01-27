@@ -48,7 +48,6 @@ MULTIPLICATION_FACTOR_TOTAL_DONE=$(<MPF_done.txt)
 calc -d "$MULTIPLICATION_FACTOR_TOTAL_DONE * $ROUND_TO_THIS" > rounded_up_number.txt
 ROUNDED_UP_NUMBER=$(<rounded_up_number.txt)
 
-bash -c '[ -d LIST_DATE_TEST_2.txt ] && rm LIST_DATE_TEST_2.txt'
 touch LIST_DATE_TEST_2.txt
 echo "$ROUNDED_UP_NUMBER" >> LIST_DATE_TEST_2.txt
 
